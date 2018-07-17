@@ -18,7 +18,9 @@ class GameWrapper extends React.Component {
         {cardsId: 'c7', cardImage: 'images/card-7.jpg', match: false},
         {cardsId: 'c8', cardImage: 'images/card-8.jpg', match: false},
         {cardsId: 'c9', cardImage: 'images/card-9.jpg', match: false},
-        {cardsId: 'c10', cardImage: 'images/card-10.jpg', match: false}
+        {cardsId: 'c10', cardImage: 'images/card-10.jpg', match: false},
+        {cardsId: 'c11', cardImage: 'images/card-11.jpg', match: false},
+        {cardsId: 'c12', cardImage: 'images/card-12.jpg', match: false}
       ],
       randArray: [],
       oldCard: undefined,
@@ -29,13 +31,15 @@ class GameWrapper extends React.Component {
   handleOnClickFlip = (e) => {
     let currentCard = e.currentTarget;
     let currentCardFlipId = currentCard.dataset.cards_id;
+    let currentCardKey = currentCard.dataset.united_key;
     let oldCard = this.state.oldCard;
     let oldCardFlipId = oldCard ? oldCard.dataset.cards_id : undefined;
+    let oldCardKey = oldCard ? oldCard.dataset.united_key : undefined;
     let newArray = [];
     // e.currentTarget.classList.contains('flipper-card')
     e.currentTarget.classList.toggle('flipper-card');
     if(oldCard && oldCardFlipId && oldCard.classList.contains('flipper-card') && currentCard.classList.contains('flipper-card')){
-      if(currentCardFlipId === oldCardFlipId){
+      if((currentCardFlipId === oldCardFlipId) && (currentCardKey != oldCardKey)){
         // console.log(currentCardFlipId);
         // console.log(oldCardFlipId);
         // newArray = this.state.randArray.filter(function( obj ) {
@@ -73,7 +77,7 @@ class GameWrapper extends React.Component {
   }
   componentDidMount(){
     const myArray = this.state.cards;
-    if(this.props.levelChoose === 'b1') myArray.length -= 5;
+    if(this.props.levelChoose === 'b1') myArray.length -= 6;
     if(this.props.levelChoose === 'i2') myArray.length -= 3;
     const clone = myArray.slice(0);
     const unitedArray = [...myArray, ...clone];
@@ -86,7 +90,7 @@ class GameWrapper extends React.Component {
       {this.state.winGame ? <WinGame /> : (
         this.state.randArray.map((card, index) => {
           return(
-            <Card key={index} flip={this.handleOnClickFlip} cardsId={card.cardsId} back={card.cardImage} />
+            <Card key={index} flip={this.handleOnClickFlip} unitedKey={`card${index}`} cardsId={card.cardsId} back={card.cardImage} />
           )
         }))}
     </div>

@@ -1,29 +1,59 @@
 .ChooseLevel{
-  max-width: 767px;
+  max-width: 600px;
   margin: 0 auto;
+  width: 100%;
   h1{
     text-align: center;
   }
 }
 .LevelBox{
   .single-level-box {
-    box-shadow: 1px 1px 1px #000;
-    padding: 15px;
-    background-color: #eee;
+    position: relative;
+    border: 2px solid #aca16d;
+    padding: 20px;
+    background-color: transparent;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
     cursor: pointer;
     h2{
       font-size: 20px;
       font-weight: 900;
       text-transform: uppercase;
       font-family: 'Roboto', sans-serif;
+      color: #aca16d;
+      position: relative;
+      z-index: 1;
     }
     i{
+      position: relative;
+      z-index: 1;
       font-size: 30px;
+      color: #aca16d;
     }
+  }
+  .single-level-box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    opacity: .9;
+    transition: all .3s ease;
+  }
+  .single-level-box.b1::before{
+    background-color: green;
+  }
+  .single-level-box.i2::before{
+    background-color: blue;
+  }
+  .single-level-box.e3::before{
+    background-color: red;
+  }
+
+  .single-level-box:hover::before{
+    width: 100%;
   }
 }

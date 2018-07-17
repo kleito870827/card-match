@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 // components
 import ChooseLevel from './ChooseLevel';
 import GameWrapper from './GameWrapper';
+import '../styles/components/_AppWrapper.scss';
 
 
 export const history = createHistory();
@@ -26,7 +27,7 @@ class AppWrapper extends React.Component {
   }
   render(){
     return(
-      <div>
+      <div className="AppWrapper">
         {this.state.levelChoose ? <GameWrapper levelChoose={this.state.levelChoose} /> : <ChooseLevel levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
       </div>
     )
