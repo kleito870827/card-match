@@ -2,6 +2,7 @@
   max-width: 600px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 15px;
   h1{
     text-align: center;
   }
@@ -44,16 +45,22 @@
     transition: all .3s ease;
   }
   .single-level-box.b1::before{
-    background-color: green;
+    background-color: #395818;
   }
   .single-level-box.i2::before{
-    background-color: blue;
+    background-color: #624a00;
   }
   .single-level-box.e3::before{
-    background-color: red;
+    background-color: #5e0001;
   }
 
   .single-level-box:hover::before{
     width: 100%;
+  }
+}
+@media (max-width: 700px) and (max-height: 400px) and (orientation: landscape) {
+  .LevelBox .single-level-box{
+    padding: 5px 10px;
+    margin-bottom: 20px;
   }
 }

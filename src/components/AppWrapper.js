@@ -17,7 +17,8 @@ class AppWrapper extends React.Component {
       {id: 'i2', description: 'Intermediate', icon: 'star-half-o'},
       {id: 'e3', description: 'Expert', icon: 'star'}
     ],
-    levelChoose : undefined
+    levelChoose : undefined,
+    mute: false
   }
 
   handleOnClickLevelChoose = (id) => {
@@ -25,10 +26,27 @@ class AppWrapper extends React.Component {
       levelChoose: id
     }));
   }
+
+  handleOnClickMute = () => {
+    this.setState((prev) => ({mute: !prev.mute}));
+  }
+
+  handleOnClickBack = () => {
+    this.setState(() => ({ levelChoose: undefined}));
+  }
+
   render(){
     return(
       <div className="AppWrapper">
-        {this.state.levelChoose ? <GameWrapper levelChoose={this.state.levelChoose} /> : <ChooseLevel levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
+        <div onClick={this.handleOnClickMute} className="mute_cont">
+          <i className={`fa fa-volume-${this.state.mute ? 'off' : 'up'}`} aria-hidden="true"></i>
+        </div>
+        {this.state.levelChoose &&
+          <div onClick={this.handleOnClickBack} className="go_back">
+            <i className="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+        }
+        {this.state.levelChoose ? <GameWrapper mute={this.state.mute} levelChoose={this.state.levelChoose} /> : <ChooseLevel mute={this.state.mute} levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
       </div>
     )
   }

@@ -11,3 +11,31 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.mute_cont{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+
+  i{
+    font-size: 30px;
+    color: #aca16d;
+  }
+}
+.go_back{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+
+  i{
+    font-size: 30px;
+    color: #aca16d;
+  }
+}
