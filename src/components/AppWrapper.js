@@ -38,6 +38,9 @@ class AppWrapper extends React.Component {
   render(){
     return(
       <div className="AppWrapper">
+        <div className="rotate_phone">
+          <img src="images/rotatedevice.gif" alt="rotate device"/>
+        </div>
         <div onClick={this.handleOnClickMute} className="mute_cont">
           <i className={`fa fa-volume-${this.state.mute ? 'off' : 'up'}`} aria-hidden="true"></i>
         </div>

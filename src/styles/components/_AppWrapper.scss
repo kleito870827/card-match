@@ -10,6 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 .mute_cont{
   position: absolute;
@@ -38,4 +39,34 @@
     font-size: 30px;
     color: #aca16d;
   }
+}
+.rotate_phone{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.rotate_phone::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  background-color: #000;
+  opacity: .7;
+}
+.rotate_phone img{
+  position: relative;
+  z-index: 9;
+}
+@media screen and (orientation:portrait) {
+.rotate_phone{
+  display: flex;
+}
 }
