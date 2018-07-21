@@ -11,7 +11,7 @@
 	// 	transform: rotateY(180deg);
 	// }
 	.flipper-card {
-		-webkit-transform: rotate(180deg);  
+		-webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
 		transform: rotateY(180deg);
 	}
@@ -25,12 +25,15 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	-webkit-transition: width height .3s ease;
 	transition: width height .3s ease;
 }
 
 /* flip speed goes here */
 .flipper {
+	-webkit-transition: 0.6s;
 	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
 	position: relative;
@@ -38,6 +41,9 @@
 
 /* hide back of pane during swap */
 .front, .back {
+	-webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
 	backface-visibility: hidden;
 	border: 1px solid #aca16d;
 
@@ -50,11 +56,15 @@
 .front {
 	z-index: 2;
 	/* for firefox 31 */
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
 	transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
 	transform: rotateY(180deg);
 }
 .match-cards{
