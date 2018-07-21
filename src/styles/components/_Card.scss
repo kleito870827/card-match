@@ -11,6 +11,8 @@
 	// 	transform: rotateY(180deg);
 	// }
 	.flipper-card {
+		-webkit-transform: rotate(180deg);  
+    -ms-transform: rotate(180deg);
 		transform: rotateY(180deg);
 	}
 
