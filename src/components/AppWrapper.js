@@ -19,7 +19,8 @@ class AppWrapper extends React.Component {
       {id: 'e3', description: 'Expert', icon: 'star'}
     ],
     levelChoose : undefined,
-    mute: false
+    mute: false,
+    startPlay: false
   }
 
   handleOnClickLevelChoose = (id) => {
@@ -35,6 +36,9 @@ class AppWrapper extends React.Component {
   handleOnClickBack = () => {
     this.setState(() => ({ levelChoose: undefined}));
   }
+  handleOnClickStart = () => {
+    this.setState(() => ({startPlay: true}));
+  }
 
   render(){
     return(
@@ -42,6 +46,12 @@ class AppWrapper extends React.Component {
         <div className="rotate_phone">
           <img src="images/rotatedevice.gif" alt="rotate device"/>
         </div>
+        {!this.state.startPlay &&
+          <div onClick={this.handleOnClickStart} className="start-music">
+            <p>Welcome to Match Game</p>
+            <p>Click to Play</p>
+          </div>
+        }
         <div onClick={this.handleOnClickMute} className="mute_cont">
           <i className={`fa fa-volume-${this.state.mute ? 'off' : 'up'}`} aria-hidden="true"></i>
         </div>
@@ -50,7 +60,7 @@ class AppWrapper extends React.Component {
             <i className="fa fa-arrow-left" aria-hidden="true"></i>
           </div>
         }
-        {this.state.levelChoose ? <GameWrapper mute={this.state.mute} levelChoose={this.state.levelChoose} /> : <ChooseLevel mute={this.state.mute} levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
+        {this.state.levelChoose ? <GameWrapper mute={this.state.mute} levelChoose={this.state.levelChoose} /> : <ChooseLevel mute={this.state.mute} startApp={this.state.startPlay} levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
         <Link className="copyright-link" to="/copyright">Copyright</Link>
       </div>
     )

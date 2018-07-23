@@ -14,7 +14,7 @@ class ChooseLevel extends React.Component {
       this.currentTime = 0;
       this.play();
     }, false);
-    myAudio.play();
+    this.props.startApp && myAudio.play();
     this.props.mute ? myAudio.muted = true : myAudio.muted = false;
   }
   componentWillUnmount() {
@@ -41,13 +41,20 @@ class ChooseLevel extends React.Component {
   }
   componentDidUpdate(){
     const myAudio = this.state.gameMusic;
+
+      myAudio.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.props.startApp && myAudio.play();
+
     this.props.mute ? myAudio.muted = true : myAudio.muted = false;
   }
   render(){
     return(
       <div className="ChooseLevel">
         <h1>Choose your level</h1>
-        <LevelBox levelChoose={this.props.levelChoose} levels={this.props.levels} />        
+        <LevelBox levelChoose={this.props.levelChoose} levels={this.props.levels} />
       </div>
     )
   }
