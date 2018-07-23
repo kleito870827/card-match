@@ -1,0 +1,28 @@
+.Copyright{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/images/bg-faded.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .go_back{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  .title{
+    padding-top: 30px;
+  }
+  .content{
+    max-width: 767px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    p{
+      color: #aca16d;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+}

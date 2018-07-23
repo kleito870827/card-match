@@ -1,5 +1,6 @@
 import React from 'react';
 import createHistory from 'history/createBrowserHistory';
+import {Link} from 'react-router-dom';
 
 // components
 import ChooseLevel from './ChooseLevel';
@@ -50,6 +51,7 @@ class AppWrapper extends React.Component {
           </div>
         }
         {this.state.levelChoose ? <GameWrapper mute={this.state.mute} levelChoose={this.state.levelChoose} /> : <ChooseLevel mute={this.state.mute} levelChoose={this.handleOnClickLevelChoose} levels={this.state.levels} />}
+        <Link className="copyright-link" to="/copyright">Copyright</Link>
       </div>
     )
   }

@@ -47,7 +47,7 @@ class ChooseLevel extends React.Component {
     return(
       <div className="ChooseLevel">
         <h1>Choose your level</h1>
-        <LevelBox levelChoose={this.props.levelChoose} levels={this.props.levels} />
+        <LevelBox levelChoose={this.props.levelChoose} levels={this.props.levels} />        
       </div>
     )
   }
